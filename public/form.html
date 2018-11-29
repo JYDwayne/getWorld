@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+	<div onclick="sendAjax(event)">
+		点击发送post ajax
+	</div>
+</body>
+<script>
+	function sendAjax(event) {
+		console.log(event)
+		$.ajax({
+			url: '/getlist',
+			type: 'POST',
+			dataType: 'json',
+
+			data: {
+				param1: 'value1',
+				param2: 'value2'
+			},
+		})
+		.done(function(res) {
+			console.log(typeof res);
+		})
+		.fail(function() {
+			console.log("error");
+		})
+	}
+	
+</script>
+</html>
